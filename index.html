@@ -1,0 +1,120 @@
+<html>
+
+<head>
+        <style>
+                #info {
+                        display: none;
+                }
+        </style>
+</head>
+
+<body>
+
+        <button onclick="showinfo()">Show Info</button>
+        <br><br>
+        <div id="info">
+                <div id="1"></div>
+                <br>
+                <div id="2"></div>
+                <br>
+                <div id="3"></div>
+                <br>
+                <div id="4"></div>
+                <br>
+                <div id="5"></div>
+                <br>
+                <div id="6"></div>
+                <br>
+                <div id="7"></div>
+                <br>
+                <div id="8"></div>
+                <br>
+                <div id="9"></div>
+                <br>
+                <div id="10"></div>
+                <br>
+                <div id="11"></div>
+        </div>
+
+
+
+        <script>
+
+                var info = {
+
+                        timeOpened: new Date(),
+                        timezone: (new Date()).getTimezoneOffset() / 60,
+
+                        pageon() { return window.location.pathname },
+                        referrer() { return document.referrer },
+                        previousSites() { return history.length },
+
+                        browserName() { return navigator.appName },
+                        browserEngine() { return navigator.product },
+                        browserVersion1a() { return navigator.appVersion },
+                        browserVersion1b() { return navigator.userAgent },
+                        browserLanguage() { return navigator.language },
+                        browserOnline() { return navigator.onLine },
+                        browserPlatform() { return navigator.platform },
+                        javaEnabled() { return navigator.javaEnabled() },
+                        dataCookiesEnabled() { return navigator.cookieEnabled },
+                        dataCookies1() { return document.cookie },
+                        dataCookies2() { return decodeURIComponent(document.cookie.split(";")) },
+                        dataStorage() { return localStorage },
+
+                        sizeScreenW() { return screen.width },
+                        sizeScreenH() { return screen.height },
+                        sizeDocW() { return document.width },
+                        sizeDocH() { return document.height },
+                        sizeInW() { return innerWidth },
+                        sizeInH() { return innerHeight },
+                        sizeAvailW() { return screen.availWidth },
+                        sizeAvailH() { return screen.availHeight },
+                        scrColorDepth() { return screen.colorDepth },
+                        scrPixelDepth() { return screen.pixelDepth },
+
+
+                        latitude() { return position.coords.latitude },
+                        longitude() { return position.coords.longitude },
+                        accuracy() { return position.coords.accuracy },
+                        altitude() { return position.coords.altitude },
+                        altitudeAccuracy() { return position.coords.altitudeAccuracy },
+                        heading() { return position.coords.heading },
+                        speed() { return position.coords.speed },
+                        timestamp() { return position.timestamp },
+
+
+                };
+
+                var ip;
+                function getIP(json) {
+                                ip = json.ip;
+                        }
+
+                function showinfo() {
+                        document.getElementById('3').innerHTML = 'Browser: ' + info.browserName();
+                        document.getElementById('4').innerHTML = 'Browser Engine: ' + info.browserEngine();
+                        document.getElementById('5').innerHTML = 'Browser Language: ' + info.browserLanguage();
+                        document.getElementById('6').innerHTML = 'Browser Platform: ' + info.browserPlatform();
+                        document.getElementById('7').innerHTML = 'PageOn: ' + info.pageon();
+                        document.getElementById('8').innerHTML = 'App Version: ' + info.browserVersion1a();
+                        document.getElementById('9').innerHTML = 'Java Enabled: ' + info.javaEnabled();
+                        document.getElementById('10').innerHTML = 'Cookies Enabled: ' + info.dataCookiesEnabled();
+                        document.getElementById('11').innerHTML = 'Online: ' + info.browserOnline();
+                        document.getElementById('2').innerHTML = 'Time Opened: ' + info.timeOpened;
+                        document.getElementById('1').innerHTML = 'Ip: ' + ip;
+
+
+                        document.getElementById('info').style.display = 'block';
+                        
+
+                }
+
+        </script>
+        <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+
+
+
+</body>
+
+</html>
